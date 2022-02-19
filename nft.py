@@ -1,19 +1,17 @@
 from random import randint, choice
 from os import system, listdir, mkdir
-from json import loads
+from json import load
 from time import sleep, perf_counter
 from PIL import Image
 import matplotlib.pyplot as plt
 
 class NFT:
-	def __init__(self, options={"accessories":False}):
+	def __init__(self):
 		self.files = {}
-		self.options = options
 		self.cache = []
 		self.tint = []
 		self.outputdir = "assets/output/"
-		self.ph = []
-		
+		self.ph = []		
 	
 	def generate(self, folders, iterations):
 
@@ -45,7 +43,6 @@ class NFT:
 			self.ph.append(bg)
 
 		for i in self.files:
-			print(i)
 			self.tint.append((randint(50,255), randint(50,255), randint(50,255)))
 		
 	def apply(self):
@@ -77,7 +74,8 @@ class NFT:
 											 i.split(".")[1])
 						)
 					except FileNotFoundError:
-						mkdir(self.assetdir + self.outputdir)
+						mkdir("assets")
+						mkdir(self.outputdir)
 						self.bg_img.save(str(self.outputdir + 
 											 "__final__" + 
 											 i.split(".")[0][0] +
@@ -94,8 +92,8 @@ if __name__ == '__main__':
 	nft = NFT()
 
 	with open("config.json") as cfg:
-		cfg = json.load(cfg)
+		cfg = load(cfg)
 		image_size = cfg["image_size"]
 
 	nft.generate(cfg["folders"], cfg["amount_of_iterations"])
-	print(f"succesfully generated {nft.}")
+	print(f"succesfully generated {cfg['amount_of_iterations']} nft images!")

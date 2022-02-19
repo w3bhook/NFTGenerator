@@ -1,8 +1,6 @@
 {
 	"folders": [
-		"assets/userfiles/shoestyle1.png",
-		"assets/output/glasses.jpg",
-		"assets/precomp/maincharacter.png",
+		"addons/"
 	],
 
 	"amount_of_iterations": 5,
