@@ -96,4 +96,4 @@ if __name__ == '__main__':
 		image_size = cfg["image_size"]
 
 	nft.generate(cfg["folders"], cfg["amount_of_iterations"])
-	print(f"succesfully generated {cfg['amount_of_iterations']} nft images!")
+	print(f"\n\ncongrats, succesfully generated {cfg['amount_of_iterations']} nft images!\n\n")
